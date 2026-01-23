@@ -32,7 +32,7 @@ int     main(int argc, char **argv, char **envp)
         close(pipex.infile);
     }
     pipex.id2 = fork();
-    execute_cmd2(&pipex,argv[4],envp);
+    execute_cmd2(&pipex,argv[3],envp);
     clean_all_final(&pipex,"close");
     if (pipex.id1 >0)
         waitpid(pipex.id1, &(pipex.status1),0);

@@ -9,27 +9,26 @@ SRCS		= main.c \
 			  utils2.c \
 			  utils3.c
 OBJS		= $(SRCS:.c=.o)
-HEADERS		= pipex.h
 
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 
-%.o: %.c $(HEADERS)
-	@$(CC) $(CFLAGS) -c $< -o $@
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT):
-	@$(MAKE) -C $(LIBFT_DIR)
+	$(MAKE) -C $(LIBFT_DIR)
 
 clean:
-	@$(RM) $(OBJS)
-	@$(MAKE) -C $(LIBFT_DIR) clean
+	$(RM) $(OBJS)
+	$(MAKE) -C $(LIBFT_DIR) clean
 
 fclean: clean
-	@$(RM) $(NAME)
-	@$(MAKE) -C $(LIBFT_DIR) fclean
+	$(RM) $(NAME)
+	$(MAKE) -C $(LIBFT_DIR) fclean
 
 re: fclean all
 
